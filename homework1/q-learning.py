@@ -58,6 +58,7 @@ def Q_learning(env, alpha=0.8, gamma=0.98, epsilon=1.0, epsilon_decay=0.001, n_e
             episode_rewards += reward
             
             # Choose A' from S' using policy derived from Q with Max ------------
+            # epsilon-greedy가 아닌 max값을 가지는 q값의 행동이 A'가 된다.
             next_action = np.argmax(Q[next_state, :])
             
             # Q(s,a) <- Q(s,a) + alpha*(reward + gamma*Q(s',a) - Q(s,a)) -------------
